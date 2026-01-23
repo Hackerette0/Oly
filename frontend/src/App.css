@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* src/components/Header.css  (import in Header.js if you create it) */
+.category-nav a {
+  color: #333;
+}
+
+.category-nav a:hover {
+  color: #F11A00 !important;
+}
+
+.category-nav .active-category {
+  color: #F11A00;
+  font-weight: 600;
+  border-bottom: 2px solid #F11A00;
+  padding-bottom: 4px;
+}

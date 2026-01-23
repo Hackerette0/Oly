@@ -1,0 +1,14 @@
+nav a {
+  color: #333;
+}
+
+nav a:hover {
+  color: #F11A00 !important;
+}
+
+nav .active-category {
+  color: #F11A00;
+  font-weight: 600;
+  border-bottom: 2px solid #F11A00;
+  padding-bottom: 4px;
+}
