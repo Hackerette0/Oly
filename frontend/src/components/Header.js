@@ -1,6 +1,7 @@
 // src/components/Header.js
+import React from 'react';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'; // ← add FaUserCircle
 
 function Header() {
   const navigate = useNavigate();
@@ -12,15 +13,6 @@ function Header() {
     navigate('/login');
   };
 
-  // Category links – you can change these
-  /*const categories = [
-    { name: 'Skincare', path: '/category/skincare' },
-    { name: 'Makeup', path: '/category/makeup' },
-    { name: 'Haircare', path: '/category/haircare' },
-    { name: 'Trending', path: '/trending' },
-    { name: 'New Arrivals', path: '/new-arrivals' },
-  ];
-*/
   return (
     <header
       style={{
@@ -63,8 +55,6 @@ function Header() {
         />
       </div>
 
-
-
       {/* Right side */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
         <NavLink
@@ -84,18 +74,29 @@ function Header() {
         </Link>
 
         {isLoggedIn ? (
-          <button
-            onClick={handleLogout}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#F11A00',
-              fontWeight: '500',
-              cursor: 'pointer',
-            }}
-          >
-            Logout
-          </button>
+          <>
+            {/* ← Profile link added here */}
+            <Link
+              to="/profile"
+              title="My Profile"
+              style={{ fontSize: '22px', color: '#333' }}
+            >
+              <FaUserCircle />
+            </Link>
+
+            <button
+              onClick={handleLogout}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#F11A00',
+                fontWeight: '500',
+                cursor: 'pointer',
+              }}
+            >
+              Logout
+            </button>
+          </>
         ) : (
           <div style={{ display: 'flex', gap: '16px' }}>
             <Link to="/login" style={{ color: '#333', textDecoration: 'none' }}>

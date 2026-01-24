@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fdfcfb; /* Soft boutique background */
+}
+
 body {
   background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
   font-family: 'Segoe UI', system-ui, sans-serif;

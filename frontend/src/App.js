@@ -1,4 +1,5 @@
 // src/App.js
+import './index.css'; 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header.js';
 import Footer from './components/footer';
@@ -9,7 +10,8 @@ import ProductDetail from './pages/ProductDetail.js';
 import Cart from './pages/Cart.js';
 import AIChatbot from './components/AIChatbot';
 import ColorAnalysis from './pages/ColorAnalysis';
-import AdminDashboard from './pages/AdminDashboard'; // Make sure this file exists
+import AdminDashboard from './pages/AdminDashboard';
+import Profile from './pages/Profile'; 
 
 // Protected route wrapper (simple version for now)
 const ProtectedRoute = ({ children }) => {
@@ -46,6 +48,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<Profile />} />
 
             {/* Admin route – protected */}
             <Route
