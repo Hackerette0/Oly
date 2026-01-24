@@ -11,7 +11,8 @@ import Cart from './pages/Cart.js';
 import AIChatbot from './components/AIChatbot';
 import ColorAnalysis from './pages/ColorAnalysis';
 import AdminDashboard from './pages/AdminDashboard';
-import Profile from './pages/Profile'; 
+import Profile from './pages/Profile';
+import CommunityForum from './pages/CommunityForum'; 
 
 // Protected route wrapper (simple version for now)
 const ProtectedRoute = ({ children }) => {
@@ -43,6 +44,7 @@ function App() {
         <main style={{ padding: '20px', flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/community" element={<CommunityForum />} />
             <Route path="/color-analysis" element={<ColorAnalysis />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

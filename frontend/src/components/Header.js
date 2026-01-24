@@ -1,7 +1,6 @@
-// src/components/Header.js
 import React from 'react';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
-import { FaShoppingCart, FaUserCircle } from 'react-icons/fa'; // ← add FaUserCircle
+import { FaShoppingCart, FaUserCircle, FaUsers } from 'react-icons/fa'; // ← Added FaUsers
 
 function Header() {
   const navigate = useNavigate();
@@ -57,6 +56,24 @@ function Header() {
 
       {/* Right side */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
+        
+        {/* Community Forum Link */}
+        <NavLink
+          to="/community"
+          style={{
+            color: '#333',
+            textDecoration: 'none',
+            fontWeight: '500',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}
+          className={({ isActive }) => (isActive ? 'text-rose-600' : '')}
+        >
+          <FaUsers style={{ fontSize: '20px' }} />
+          <span>Community</span>
+        </NavLink>
+
         <NavLink
           to="/color-analysis"
           style={{
@@ -69,17 +86,16 @@ function Header() {
           Personal Colors
         </NavLink>
 
-        <Link to="/cart" style={{ fontSize: '22px', color: '#333' }}>
+        <Link to="/cart" style={{ fontSize: '22px', color: '#333', display: 'flex', alignItems: 'center' }}>
           <FaShoppingCart />
         </Link>
 
         {isLoggedIn ? (
           <>
-            {/* ← Profile link added here */}
             <Link
               to="/profile"
               title="My Profile"
-              style={{ fontSize: '22px', color: '#333' }}
+              style={{ fontSize: '22px', color: '#333', display: 'flex', alignItems: 'center' }}
             >
               <FaUserCircle />
             </Link>

@@ -3,28 +3,25 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  username: { 
+  username: { type: String, required: true, unique: true, trim: true, minlength: 3 },
+  password: { type: String, required: true, minlength: 6 },
+  role: { type: String, required: true, enum: ['buyer', 'seller', 'admin'], default: 'buyer' },
+  isAdmin: { type: Boolean, default: false },
+  
+  // --- NEW COMMUNITY FIELDS ---
+  skinType: { 
     type: String, 
-    required: true, 
-    unique: true, 
-    trim: true,
-    minlength: 3 
+    enum: ['Oily', 'Dry', 'Combination', 'Sensitive', 'Normal'],
+    default: 'Normal' 
   },
-  password: { 
-    type: String, 
-    required: true,
-    minlength: 6 
-  },
-  role: { 
-    type: String, 
-    required: true, 
-    enum: ['buyer', 'seller', 'admin'],   // ← added 'admin'
-    default: 'buyer'
-  },
-  isAdmin: { 
-    type: Boolean, 
-    default: false 
-  },
+  reputation: { type: Number, default: 0 }, // Reward helpful contributors
+  skinJourney: [{
+    date: { type: Date, default: Date.now },
+    milestone: String,
+    imageUrl: String
+  }],
+  // ----------------------------
+
   cart: [{
     product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
     quantity: { type: Number, default: 1 }
