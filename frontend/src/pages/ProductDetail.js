@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -94,10 +95,8 @@ function ProductDetails() {
           <img
             src={
               product.image
-                ? `${process.env.REACT_APP_API_URL}${
-                    product.image.startsWith('/') ? '' : '/'
-                  }${product.image}`
-                : 'https://placehold.co/500x600/ff69b4/ffffff/png?text=Product'
+                ? `${backendUrl}${product.image}`: 'https://placehold.co/500x600/ff69b4/ffffff/png?text=Product'
+                
             }
             alt={product.name || 'Product image'}
             style={{

@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
 const Order = require('../models/Order');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+//const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const { protect } = require('../middleware/auth');
 
 
@@ -30,6 +30,7 @@ router.get('/', protect, async (req, res) => {
 });
 
 // Checkout
+/*
 router.post('/checkout', protect, async (req, res) => {
   const user = await User.findById(req.user.id).populate('cart.product');
   const total = user.cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
@@ -43,5 +44,5 @@ router.post('/checkout', protect, async (req, res) => {
   await user.save();
   res.json({ clientSecret: paymentIntent.client_secret });
 });
-
+*/
 module.exports = router;

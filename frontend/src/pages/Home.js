@@ -4,24 +4,29 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
+import { getProductImageUrl } from '../utils/helpers';
+
+const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/products`)
-      .then((res) => {
-        console.log('Products from API:', res.data);
-        setProducts(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Failed to load products:', err);
-        setLoading(false);
-      });
-  }, []);
+    const url = `${process.env.REACT_APP_API_URL}/products`;
+  console.log('Fetching from URL:', url);
+
+    axios.get(`${process.env.REACT_APP_API_URL}/products`)
+  .then((res) => {
+    console.log('Products from API:', res.data);
+    setProducts(res.data);
+    setLoading(false);
+  })
+    .catch((err) => {
+      console.error('Fetch error details:', err.message, err.response?.data);
+      setLoading(false);
+    });
+}, []);
 
   const settings = {
     dots: true,
@@ -62,12 +67,11 @@ function Home() {
         <Slider {...settings}>
           {carouselProducts.map((product) => {
             let imageSrc = product.image
-              ? `${process.env.REACT_APP_API_URL}${
-                  product.image.startsWith('/') ? '' : '/'
-                }${product.image}`
-              : 'https://placehold.co/800x500/ff69b4/ffffff/png?text=No+Image';
-
+  ? `${backendUrl}${product.image}`   // product.image already starts with /
+  : 'https://placehold.co/800x500/ff69b4/ffffff/png?text=No+Image';
+  console.log(`Using backendUrl: ${backendUrl}`);
             console.log(`Carousel image src for ${product.name}:`, imageSrc);
+            console.log('REACT_APP_API_URL value:', process.env.REACT_APP_API_URL);
 
             return (
               <Link
@@ -185,11 +189,11 @@ function Home() {
       >
         {products.map((product) => {
           let imageSrc = product.image
-            ? `${process.env.REACT_APP_API_URL}${
-                product.image.startsWith('/') ? '' : '/'
-              }${product.image}`
-            : 'https://placehold.co/300x300/ff69b4/ffffff/png?text=No+Image';
+  ? `${backendUrl}${product.image}`
+  : 'https://placehold.co/300x300/ff69b4/ffffff/png?text=No+Image';
 
+  console.log(`Final image src for ${product.name}: ${imageSrc}`);
+  
           console.log(`Grid image src for ${product.name}:`, imageSrc);
 
           return (

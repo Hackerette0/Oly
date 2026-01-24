@@ -1,7 +1,6 @@
-// src/components/AIChatbot.js
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { Camera, Send } from 'lucide-react';
+import { Camera, Send, Mic } from 'lucide-react';
 
 export default function AIChatbot() {
   const [messages, setMessages] = useState([
@@ -35,7 +34,6 @@ export default function AIChatbot() {
       const base64 = reader.result.split(',')[1];
       setSelectedImage(base64);
       setMessages(prev => [...prev, { role: 'user', content: '[Skin photo uploaded—analyzing now...]' }]);
-      // Auto-send the image for analysis
       sendMessage('', base64);
     };
     reader.readAsDataURL(file);
@@ -44,37 +42,69 @@ export default function AIChatbot() {
   const sendMessage = async (text = input.trim(), imageBase64 = selectedImage) => {
     if (!text && !imageBase64) return;
 
-    // Add user message (text or placeholder)
     if (text) {
       setMessages(prev => [...prev, { role: 'user', content: text }]);
       setInput('');
     }
+
     setSelectedImage(null);
     setLoading(true);
 
     try {
+      const payload = {
+        message: text || 'Analyze this skin photo for age, texture, elasticity, and recommendations.',
+        conversationHistory: messages.map(m => ({ role: m.role, content: m.content })),
+        imageBase64,
+        context
+      };
+      console.log('Sending to backend:', payload);
+
       const res = await axios.post(
         `${process.env.REACT_APP_API_URL}/chat`,
-        {
-          message: text,
-          conversationHistory: messages.map(m => ({ role: m.role, content: m.content })),
-          imageBase64,
-          context
-        },
-        { timeout: 28000 }
+        payload,
+        { timeout: 60000 }
       );
 
-      const reply = res.data.reply?.trim() || "I'd love to help! Ask me anything 💕";
-      const replyParts = reply.split(/\n\n+/).filter(p => p.trim());
+      console.log('Backend full response:', res.data);
+
+      let reply = res.data.reply?.trim() || "Hmm... I'm thinking! Try asking again 💭";
+
+      // Better splitting: split on double newlines or sentences
+      const replyParts = reply.split(/\n{2,}/).filter(p => p.trim().length > 10);
+      if (replyParts.length === 0) replyParts.push(reply);
+
       replyParts.forEach(part => {
-        setMessages(prev => [...prev, { role: 'bot', content: part.trim() }]);
+        if (part.trim()) {
+          setMessages(prev => [...prev, { role: 'bot', content: part.trim() }]);
+          speak(part.trim());
+        }
       });
     } catch (err) {
-      console.error('Chat error:', err);
-      
-      setMessages(prev => [...prev, { role: 'bot', content: "Oops! Something went wrong 😅 Try again or ask me without a photo!" }]);
+      console.error('Frontend chat error:', err);
+      const errorMsg = err.response?.data?.reply || "Oops! Something went wrong 😅 Try again or ask without photo!";
+      setMessages(prev => [...prev, { role: 'bot', content: errorMsg }]);
+      speak(errorMsg);
     } finally {
       setLoading(false);
+      scrollToBottom();
+    }
+  };
+
+  // TTS
+  const speak = (text) => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-IN';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+      speechSynthesis.speak(utterance);
+    }
+
+  // Rest of your component remains the same...
+  // (header, messages area, quick suggestions, input area – keep as is)
+ else {
+      console.warn('Browser TTS not supported');
     }
   };
 
@@ -171,8 +201,8 @@ export default function AIChatbot() {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Quick suggestions (only at start) */}
-      {messages.length <= 2 && (
+      {/* Quick suggestions */}
+      {messages.length <= 3 && (
         <div style={{ padding: '12px 16px', background: '#fff', borderTop: '1px solid #ffe0ed' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
             {["Best for oily skin", "Moisturizer under ₹800", "Hairfall tips", "Sunscreen no white cast", "Lip tint ideas", "Night cream for glow"].map((q) => (
@@ -225,15 +255,29 @@ export default function AIChatbot() {
             📸
           </button>
           <button
+            onClick={() => alert('Voice input coming soon! 🎤')} // Placeholder for mic
+            style={{
+              padding: '14px',
+              background: '#FF69B4',
+              color: 'white',
+              border: 'none',
+              borderRadius: '50%',
+              cursor: 'pointer',
+              fontSize: '20px'
+            }}
+          >
+            🎤
+          </button>
+          <button
             onClick={() => sendMessage()}
             disabled={!input.trim() && !selectedImage}
             style={{
               padding: '14px 22px',
-              background: input.trim() ? '#FF1493' : '#ffb3d9',
+              background: input.trim() || selectedImage ? '#FF1493' : '#ffb3d9',
               color: 'white',
               border: 'none',
               borderRadius: 30,
-              cursor: input.trim() ? 'pointer' : 'not-allowed',
+              cursor: input.trim() || selectedImage ? 'pointer' : 'not-allowed',
               fontWeight: '600'
             }}
           >

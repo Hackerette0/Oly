@@ -1,3 +1,4 @@
+//backend/index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
@@ -7,6 +8,10 @@ const path = require('path');
 dotenv.config();
 
 const app = express();
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +23,6 @@ const cartRoutes = require('./routes/cart');
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
-app.use('/uploads', express.static('uploads'));
 
 const chatRoutes = require('./routes/chat');
 app.use('/api/chat', chatRoutes);

@@ -1,3 +1,4 @@
+//backend/routes/productRoutes.js
 const express = require('express');
 const path = require('path');
 
@@ -7,6 +8,7 @@ const { protect, isSeller } = require('../middleware/auth');
 const router = express.Router();
 const multer = require('multer');
 const uploadDir = path.join(__dirname, '..', 'uploads');
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadDir);
@@ -26,6 +28,9 @@ router.get('/', async (req, res) => {
     const products = await Product.find()
     .select('name price category skinType image description stock') // optional: explicitly select only needed fields
     .sort({ createdAt: -1 });
+    console.log('Backend found products:', products.length);
+    console.log('Products fetched:', products.length);
+    console.log('First product sample:', products[0] ? products[0].name : 'None');
     res.json(products);
   } catch (err) {
     res.status(500).json({ msg: err.message });

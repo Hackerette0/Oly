@@ -35,13 +35,12 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-
     const user = await User.findOne({ username });
     if (!user) {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
-    const token = jwt.sign(
+    const token = jwt.sign( //after login generate a token for that user
       { id: user._id, role: user.role }, // Ensure 'role' is here!
       process.env.JWT_SECRET,
       { expiresIn: '1d' }

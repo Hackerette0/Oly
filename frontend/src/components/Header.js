@@ -13,14 +13,14 @@ function Header() {
   };
 
   // Category links – you can change these
-  const categories = [
+  /*const categories = [
     { name: 'Skincare', path: '/category/skincare' },
     { name: 'Makeup', path: '/category/makeup' },
     { name: 'Haircare', path: '/category/haircare' },
     { name: 'Trending', path: '/trending' },
     { name: 'New Arrivals', path: '/new-arrivals' },
   ];
-
+*/
   return (
     <header
       style={{
@@ -63,32 +63,7 @@ function Header() {
         />
       </div>
 
-      {/* Categories – hover via CSS */}
-      <nav
-        style={{
-          display: 'flex',
-          gap: '24px',
-          marginRight: 'auto',
-          fontSize: '15px',
-          fontWeight: '500',
-        }}
-      >
-        {categories.map((cat) => (
-          <NavLink
-            key={cat.path}
-            to={cat.path}
-            style={({ isActive }) => ({
-              color: isActive ? '#F11A00' : '#333',
-              textDecoration: 'none',
-              transition: 'color 0.2s',
-            })}
-            // Optional: add class for extra styling (e.g. underline)
-            className={({ isActive }) => (isActive ? 'active-category' : '')}
-          >
-            {cat.name}
-          </NavLink>
-        ))}
-      </nav>
+
 
       {/* Right side */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>

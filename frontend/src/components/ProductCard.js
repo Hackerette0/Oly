@@ -39,12 +39,15 @@ const ProductCard = ({ product }) => {
     <div className="product-card" style={{ position: 'relative' }}>
       <Link to={`/product/${product._id}`} className="group block">
   <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition">
-    <img
-      src={`${process.env.REACT_APP_API_URL}${product.image}`}
-      alt={product.name}
-      className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"
-    />
-    {/* The favorite button stays – the badge is gone */}
+  <img
+    src={`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}${product.image}`}
+    alt={product.name}
+    onError={(e) => {
+      e.target.src = 'https://placehold.co/300?text=Image+Failed';
+      console.error('Failed image URL:', e.target.src);
+    }}
+  />    
+  {/* The favorite button stays – the badge is gone */}
     <button className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white transition">
       <span className="material-symbols-outlined text-gray-600">favorite</span>
     </button>
