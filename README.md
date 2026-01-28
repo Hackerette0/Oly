@@ -11,6 +11,8 @@ While standard e-commerce focuses on transactions, ōly focuses on **Validation 
 - **AI Beauty Assistant**: A natively integrated chatbot using RAG (Retrieval-Augmented Generation) to suggest products based on skin concerns.
 - **Visual Skin Analysis**: Users can upload or capture photos for real-time analysis of skin texture, age estimation, and health insights.
 - **Personal Color Harmony**: A 15-point diagnostic quiz combined with AI vision to determine a user's seasonal color palette (Winter, Spring, Summer, Autumn).
+- **AI-Moderated Community Forum (The "Skin Journey")**:A real-time hub for users to share personal skincare transformations, fostering emotional connections in a social-driven market.
+(e.g., *"80% of users with oily skin in high-humidity regions prefer tea tree formulations"*).
 
 ---
 
