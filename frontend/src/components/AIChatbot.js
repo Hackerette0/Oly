@@ -69,7 +69,6 @@ export default function AIChatbot() {
 
       let reply = res.data.reply?.trim() || "Hmm... I'm thinking! Try asking again 💭";
 
-      // Better splitting: split on double newlines or sentences
       const replyParts = reply.split(/\n{2,}/).filter(p => p.trim().length > 10);
       if (replyParts.length === 0) replyParts.push(reply);
 
@@ -101,8 +100,7 @@ export default function AIChatbot() {
       speechSynthesis.speak(utterance);
     }
 
-  // Rest of your component remains the same...
-  // (header, messages area, quick suggestions, input area – keep as is)
+
  else {
       console.warn('Browser TTS not supported');
     }
@@ -254,8 +252,13 @@ export default function AIChatbot() {
           >
             📸
           </button>
+<<<<<<< HEAD
           {/*<button
             onClick={() => alert('Voice input coming soon! 🎤')} // Placeholder for mic
+=======
+          <button
+            onClick={() => alert('Voice input coming soon! 🎤')} 
+>>>>>>> a9b20f084fb1fada004348f9c5bf564e871638b3
             style={{
               padding: '14px',
               background: '#FF69B4',

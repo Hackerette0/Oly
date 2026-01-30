@@ -17,7 +17,6 @@ import Navbar from './components/Navbar';
 import Wishlist from './pages/Wishlist';
 import Orders from './pages/Orders';
 
-// Protected route wrapper (simple version for now)
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
   if (!token) {
@@ -26,7 +25,6 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
-// Admin-only route wrapper (you can make this stricter later)
 const AdminRoute = ({ children }) => {
   const token = localStorage.getItem('token');
   if (!token) {
