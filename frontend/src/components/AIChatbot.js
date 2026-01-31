@@ -252,13 +252,8 @@ export default function AIChatbot() {
           >
             📸
           </button>
-<<<<<<< HEAD
           {/*<button
             onClick={() => alert('Voice input coming soon! 🎤')} // Placeholder for mic
-=======
-          <button
-            onClick={() => alert('Voice input coming soon! 🎤')} 
->>>>>>> a9b20f084fb1fada004348f9c5bf564e871638b3
             style={{
               padding: '14px',
               background: '#FF69B4',

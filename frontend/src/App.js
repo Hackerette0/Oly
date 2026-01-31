@@ -1,7 +1,7 @@
 // src/App.js
 import './index.css'; 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header.js';
+//import Header from './components/Header.js';
 import Footer from './components/footer';
 import Home from './pages/Home.js';
 import Login from './pages/Login.js';
@@ -16,6 +16,9 @@ import CommunityForum from './pages/CommunityForum';
 import Navbar from './components/Navbar';
 import Wishlist from './pages/Wishlist';
 import Orders from './pages/Orders';
+import SkinDiary from './components/SkinDiary.js'
+import FeaturedProduct from './pages/FeaturedProduct.js';
+
 
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -35,7 +38,10 @@ const AdminRoute = ({ children }) => {
 };
 
 function App() {
+
   return (
+     
+    <div className="dark bg-gray-950 text-gray-100 min-h-screen">
     <Router>
       <Navbar/>
       <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -43,6 +49,7 @@ function App() {
         <main style={{ padding: '20px', flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/featured-product" element={<FeaturedProduct />} />
             <Route path="/category/:categoryName" element={<Home />} />
             <Route path="/community" element={<CommunityForum />} />
             <Route path="/color-analysis" element={<ColorAnalysis />} />
@@ -54,8 +61,14 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/skin-diary" element={<SkinDiary />} />
 
             {/* Admin route – protected */}
+            <Route path="/skin-diary" element={
+              <ProtectedRoute>
+                <SkinDiary />
+              </ProtectedRoute>
+            }/>
             <Route
               path="/admin"
               element={
@@ -84,7 +97,9 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </div>
   );
+  
 }
 
 export default App;

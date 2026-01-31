@@ -43,7 +43,7 @@ export default function CommunityForum() {
         
         {/* Left: Insights Dashboard (VentureCube Value) */}
         <div className="space-y-6">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
+          <div className="  p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
             <TrendingUp className="text-pink-400 mb-4" />
             <h3 className="font-serif-aesthetic italic text-xl mb-4">Community Insights</h3>
             <div className="space-y-4">
@@ -57,7 +57,7 @@ export default function CommunityForum() {
 
         {/* Center: The Feed */}
         <div className="md:col-span-2 space-y-6">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-md border border-pink-50">
+          <div className="  p-8 rounded-[2.5rem] shadow-md border border-pink-50">
             <h2 className="text-3xl font-serif-aesthetic italic mb-6">Skin Journeys</h2>
             
             <form onSubmit={handlePostSubmit} className="space-y-4 mb-10">
@@ -80,7 +80,7 @@ export default function CommunityForum() {
 
             <div className="space-y-6">
               {posts.map(post => (
-                <div key={post.id} className="p-6 rounded-[2rem] border border-slate-50 bg-white hover:shadow-lg transition-all">
+                <div key={post.id} className="p-6 rounded-[2rem] border border-slate-50   hover:shadow-lg transition-all">
                   <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-pink-50 rounded-full flex items-center justify-center text-[10px] font-bold text-pink-400">

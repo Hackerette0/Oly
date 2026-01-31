@@ -130,7 +130,7 @@ export default function ColorAnalysis() {
       )}
 
       <main className="flex-1 flex flex-col items-center w-full max-w-4xl px-4">
-        <div className={`w-full bg-white transition-all duration-700 ${showQuiz || showResult ? 'rounded-3xl shadow-2xl border border-pink-50' : 'max-w-md shadow-xl rounded-[3rem]'}`}>
+        <div className={`w-full transition-all duration-700 ${showQuiz || showResult ? 'rounded-3xl shadow-2xl border border-pink-50' : 'max-w-md shadow-xl rounded-[3rem]'}`}>
           
           {!showQuiz && !showResult ? (
             <div className="p-12 text-center space-y-10">
@@ -166,7 +166,7 @@ export default function ColorAnalysis() {
 
       {/*{!showResult && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-20">
-          <div className="bg-white/90 backdrop-blur-xl border border-white/50 shadow-2xl rounded-full p-3 flex items-center">
+          <div className=" /90 backdrop-blur-xl border border-white/50 shadow-2xl rounded-full p-3 flex items-center">
             <button onClick={openModal} className="p-4 btn-radial text-white rounded-full">
               <Camera size={22} />
             </button>
@@ -179,7 +179,7 @@ export default function ColorAnalysis() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl p-8 md:p-10 max-w-md w-full relative">
+          <div className="  rounded-3xl p-8 md:p-10 max-w-md w-full relative">
             <button onClick={closeModal} className="absolute top-5 right-5 text-slate-400 hover:text-slate-800">
               <X size={24} />
             </button>

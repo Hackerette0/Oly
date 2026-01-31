@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
   return (
     <div className="product-card" style={{ position: 'relative' }}>
       <Link to={`/product/${product._id}`} className="group block">
-  <div className="relative aspect-square bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition">
+  <div className="relative aspect-square   rounded-xl overflow-hidden shadow-sm border border-gray-200 hover:shadow-md transition">
   <img
     src={`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}${product.image}`}
     alt={product.name}
@@ -48,7 +48,7 @@ const ProductCard = ({ product }) => {
     }}
   />    
   {/* The favorite button stays – the badge is gone */}
-    <button className="absolute top-3 right-3 p-2 bg-white/80 rounded-full hover:bg-white transition">
+    <button className="absolute top-3 right-3 p-2  /80 rounded-full hover:  transition">
       <span className="material-symbols-outlined text-gray-600">favorite</span>
     </button>
   </div>

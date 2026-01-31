@@ -33,7 +33,7 @@ export default function ColorAnalysisResult({ result, onReset }) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md p-10 rounded-3xl border border-pink-100 shadow-xl text-center">
+    <div className="max-w-3xl mx-auto  /80 backdrop-blur-md p-10 rounded-3xl border border-pink-100 shadow-xl text-center">
       <h2 className="text-4xl font-bold mb-6">
         Your Season: <span className={`text-${accent}`}>{season}</span>
       </h2>

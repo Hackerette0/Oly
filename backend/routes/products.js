@@ -4,6 +4,7 @@ const path = require('path');
 const Product = require('../models/Product');
 const { protect, isSeller } = require('../middleware/auth');
 const multer = require('multer');
+
 const uploadDir = path.join(__dirname, '..', 'uploads');
 
 const router = express.Router();
@@ -88,6 +89,15 @@ router.post('/', protect, isSeller, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ msg: 'Server error', error: err.message });
+  }
+});
+
+router.get('/featured', async (req, res) => {
+  try {
+    const featured = await Product.findOne({ isFeatured: true }); // Assume your model has this field
+    res.json(featured);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
   }
 });
 

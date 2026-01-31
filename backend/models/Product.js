@@ -26,15 +26,16 @@ const productSchema = new mongoose.Schema({
     enum: ['dry', 'oily', 'combination', 'sensitive', 'normal', 'acne-prone', 'mature', 'all'],
     default: 'all'
   },
-  image: {
-    type: String,
-    required: true   // e.g. "/uploads/filename.jpg"
-  },
+  //image: {
+    //type: String,
+    //required: true   // e.g. "/uploads/filename.jpg"
+  //},
   stock: {
     type: Number,
     default: 0,
     min: 0
   },
+  gallery: [{ type: String }],
   createdAt: {
     type: Date,
     default: Date.now

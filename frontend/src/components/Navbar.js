@@ -51,7 +51,7 @@ export default function Navbar() {
   return (
     <>
       {/* --- TOP HEADER --- */}
-      <nav className="w-full bg-white border-b border-slate-100 sticky top-0 z-40 px-6 py-3">
+      <nav className="w-full border-b border-slate-100 sticky top-0 z-40 px-6 py-3">
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-8">
           
           {/* Menu Toggle & Logo */}
@@ -97,7 +97,7 @@ export default function Navbar() {
       )}
 
       {/* --- SIDEBAR DRAWER --- */}
-      <aside className={`fixed top-0 left-0 h-full w-80 bg-white z-[60] shadow-2xl transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed top-0 left-0 h-full w-80 z-[60] shadow-2xl transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-6 flex flex-col h-full">
           
           <div className="flex justify-between items-center mb-8">

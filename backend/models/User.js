@@ -8,34 +8,33 @@ const userSchema = new mongoose.Schema({
   role: { type: String, required: true, enum: ['buyer', 'seller', 'admin'], default: 'buyer' },
   isAdmin: { type: Boolean, default: false },
   
-  // --- NEW COMMUNITY FIELDS ---
   skinType: { 
     type: String, 
     enum: ['Oily', 'Dry', 'Combination', 'Sensitive', 'Normal'],
     default: 'Normal' 
   },
-  reputation: { type: Number, default: 0 }, // Reward helpful contributors
+  reputation: { type: Number, default: 0 },
   skinJourney: [{
     date: { type: Date, default: Date.now },
     milestone: String,
     imageUrl: String
   }],
-  // ----------------------------
 
   cart: [{
     product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
     quantity: { type: Number, default: 1 }
+  }],   // ← ADD COMMA HERE
+
+  skinDiary: [{
+    date: { type: Date, default: Date.now },
+    photoUrl: { type: String, required: true }, 
+    scores: {
+      hydration: { type: Number }, 
+      acneSeverity: { type: Number }, 
+    },
+    notes: { type: String } 
   }]
 });
-
-// Hash password before save
-userSchema.pre('save', async function(next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-
-});
-
 // Compare password method
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return bcrypt.compare(candidatePassword, this.password);

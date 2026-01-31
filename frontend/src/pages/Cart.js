@@ -173,7 +173,7 @@ const Cart = () => {
         </div>
 
         {/* Right Side: Checkout Form */}
-        <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-50 h-fit">
+        <div className=" p-8 rounded-3xl shadow-sm border border-slate-50 h-fit">
           <h3 className="text-xl font-bold mb-6">Summary</h3>
           <div className="flex justify-between mb-4"><span>Subtotal</span><span>₹{total.toFixed(2)}</span></div>
           <div className="flex justify-between mb-6 font-bold text-lg border-t pt-4"><span>Total</span><span className="text-rose-600">₹{total.toFixed(2)}</span></div>

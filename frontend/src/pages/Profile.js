@@ -133,7 +133,7 @@ export default function Profile() {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fdfcfb] p-6">
-        <div className="bg-white p-8 rounded-2xl shadow-lg text-center max-w-md">
+        <div className="  p-8 rounded-2xl shadow-lg text-center max-w-md">
           <p className="text-red-600 font-medium mb-4">{error}</p>
           <a 
             href="/login" 
@@ -154,7 +154,7 @@ export default function Profile() {
         .font-sans-aesthetic { font-family: 'Inter', sans-serif; }
       `}</style>
 
-      <div className="w-full max-w-md bg-white rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden">
+      <div className="w-full max-w-md   rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden">
         <div className="h-32 bg-gradient-to-r from-rose-200 to-pink-100" />
 
         <div className="px-8 pb-10">

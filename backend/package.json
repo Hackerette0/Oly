@@ -10,8 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/url-gen": "^1.22.0",
+    "@huggingface/inference": "^4.13.11",
     "axios": "^1.13.2",
     "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
@@ -19,7 +23,12 @@
     "mongoose": "^9.1.5",
     "multer": "^2.0.2",
     "node-fetch": "^3.3.2",
+    "openai": "^6.17.0",
     "razorpay": "^2.9.6",
+    "sharp": "^0.34.5",
     "stripe": "^20.2.0"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^3.0.5"
   }
 }

@@ -33,7 +33,7 @@ export default function Wishlist() {
               <div key={product._id} className="relative group">
                 <button 
                   onClick={() => removeFromWishlist(product._id)}
-                  className="absolute top-3 right-3 z-20 p-2 bg-white/90 rounded-full shadow-md"
+                  className="absolute top-3 right-3 z-20 p-2  /90 rounded-full shadow-md"
                 >
                   <Heart size={18} className="fill-[#F11A00] text-[#F11A00]" />
                 </button>
