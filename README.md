@@ -42,6 +42,8 @@ A luxury-app feel for account management, including dynamic profile picture upda
 
 ### 5. Skin Diary – Weekly Progress Tracking (NEW)
 Long-term visual proof: hydration & acne trend charts from weekly uploads.
+![Skin Diary](https://github.com/Hackerette0/ecommerce--ly/blob/main/docs/images/Screenshot%202026-01-24%20232655.png)
+![Skin Diary](https://github.com/Hackerette0/ecommerce--ly/blob/main/docs/images/Screenshot%202026-01-31%20215537.png)
 ---
 
 ## 🛠 Technical Stack
