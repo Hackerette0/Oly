@@ -9,6 +9,8 @@
 While standard e-commerce focuses on transactions, ōly focuses on **Validation and Personalization**:
 
 - **AI Beauty Assistant**: A natively integrated chatbot using RAG (Retrieval-Augmented Generation) to suggest products based on skin concerns.
+- - **Skin Diary with Longitudinal AI Tracking** ← **NEW**  
+  Users upload weekly close-up photos → AI estimates **hydration (0–100)** and **acne severity (0–10)** scores → visual progress charts and trend lines show whether products/routines are actually working over time. Provides tangible proof-of-efficacy for premium skincare purchases.
 - **Visual Skin Analysis**: Users can upload or capture photos for real-time analysis of skin texture, age estimation, and health insights.
 - **Personal Color Harmony**: A 15-point diagnostic quiz combined with AI vision to determine a user's seasonal color palette (Winter, Spring, Summer, Autumn).
 - **AI-Moderated Community Forum (The "Skin Journey")**:A real-time hub for users to share personal skincare transformations, fostering emotional connections in a social-driven market.
@@ -38,6 +40,8 @@ A luxury-app feel for account management, including dynamic profile picture upda
 ![Profile Card](https://github.com/Hackerette0/ecommerce--ly/blob/main/docs/images/Screenshot%202026-01-24%20232655.png)
 *Screenshot Reference: Centered Profile Card with India-based contact details.*
 
+### 5. Skin Diary – Weekly Progress Tracking (NEW)
+Long-term visual proof: hydration & acne trend charts from weekly uploads.
 ---
 
 ## 🛠 Technical Stack
@@ -50,12 +54,12 @@ A luxury-app feel for account management, including dynamic profile picture upda
 
 ---
 
-## 🚀 Venture-Building Potential (For VentureCube)
+## 🚀 Venture-Building Potential (VentureCube)
 
-This project aligns with the VentureCube internship framework:
-- **Scalability**: The AI analysis engine can be scaled into a standalone B2B SaaS for other beauty retailers.
-- **Tech Innovation**: Implementation of ML-driven age detection and computer vision in a consumer-facing app.
-- **Market Entry**: Solves the "paradox of choice" in skincare by providing data-backed recommendations.
+- **Proven Personalization Engine** → can be licensed as B2B SaaS to other beauty retailers
+- **Data Moat** → longitudinal skin diary creates unique dataset (with consent) for training better models
+- **Retention Driver** → progress tracking turns one-time buyers into long-term loyal customers
+- **Market Validation** → solves "does this product actually work?" skepticism in premium skincare
 
 ---
 
