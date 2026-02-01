@@ -9,7 +9,7 @@
 While standard e-commerce focuses on transactions, ōly focuses on **Validation and Personalization**:
 
 - **AI Beauty Assistant**: A natively integrated chatbot using RAG (Retrieval-Augmented Generation) to suggest products based on skin concerns.
-- - **Skin Diary with Longitudinal AI Tracking** ← **NEW**  
+- **Skin Diary with Longitudinal AI Tracking** ← **NEW**  
   Users upload weekly close-up photos → AI estimates **hydration (0–100)** and **acne severity (0–10)** scores → visual progress charts and trend lines show whether products/routines are actually working over time. Provides tangible proof-of-efficacy for premium skincare purchases.
 - **Visual Skin Analysis**: Users can upload or capture photos for real-time analysis of skin texture, age estimation, and health insights.
 - **Personal Color Harmony**: A 15-point diagnostic quiz combined with AI vision to determine a user's seasonal color palette (Winter, Spring, Summer, Autumn).
