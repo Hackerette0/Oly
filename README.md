@@ -55,16 +55,6 @@ Long-term visual proof: hydration & acne trend charts from weekly uploads.
 - **AI Engine**: Google Gemini 1.5 Flash via OpenRouter API.
 - **State Management**: React Hooks (useRef, useState, useEffect) & Axios for API orchestration.
 
----
-
-## 🚀 Venture-Building Potential (VentureCube)
-
-- **Proven Personalization Engine** → can be licensed as B2B SaaS to other beauty retailers
-- **Data Moat** → longitudinal skin diary creates unique dataset (with consent) for training better models
-- **Retention Driver** → progress tracking turns one-time buyers into long-term loyal customers
-- **Market Validation** → solves "does this product actually work?" skepticism in premium skincare
-
----
 
 ## 🏗 Setup & Installation
 
